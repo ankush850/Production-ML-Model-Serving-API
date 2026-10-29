@@ -27,6 +27,8 @@ COPY scripts ./scripts
 USER appuser
 
 # model artifacts are mounted/provided at runtime via LOCAL_MODEL_DIR or S3
+# LocalModelStore(root) reads <root>/models/<VERSION>/, so /app/models resolves to
+# /app/models/models — which is where the compose mount puts the artifact tree.
 ENV LOCAL_MODEL_DIR=/app/models
 
 EXPOSE 8000

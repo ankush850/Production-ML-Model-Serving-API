@@ -10,6 +10,9 @@ services:
     environment:
       # default to the local store; set MODEL_SOURCE=s3 for real AWS
       MODEL_SOURCE: ${MODEL_SOURCE:-local}
+      # LocalModelStore(root) reads <root>/models/<VERSION>/; the bind mount below
+      # exposes ./models/artifacts at /app/models, so the artifact tree is found at
+      # /app/models/models/<VERSION>.
       LOCAL_MODEL_DIR: /app/models
     volumes:
       # serve the locally trained, timestamp-versioned artifacts
