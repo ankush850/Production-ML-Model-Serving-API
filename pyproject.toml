@@ -1,0 +1,26 @@
+[project]
+name = "production-ml-model-serving-api"
+version = "1.0.0"
+description = "End-to-end ML pipeline: pandas preprocessing, timestamp-versioned S3 artifacts, FastAPI serving, Docker, EC2."
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["reference"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM"]
+ignore = ["B008"]  # FastAPI dependency-injection in defaults
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["src/__init__.py"]
