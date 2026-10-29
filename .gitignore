@@ -1,9 +1,9 @@
 # reference clones (never committed)
 reference/
 
-# data and model artifacts
-data/
-models/
+# data and model artifacts (root-level only, so src/data/ stays tracked)
+/data/
+/models/
 *.joblib
 *.pkl
 
