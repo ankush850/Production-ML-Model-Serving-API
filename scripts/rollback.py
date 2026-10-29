@@ -12,8 +12,12 @@ from __future__ import annotations
 
 import argparse
 import sys
+from pathlib import Path
 
-from src.storage.s3_store import get_store
+# Allow ``python scripts/rollback.py`` from the repo root, not only ``python -m``.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from src.storage.s3_store import get_store  # noqa: E402
 
 
 def main(argv: list[str] | None = None) -> int:
