@@ -1,0 +1,26 @@
+# reference clones (never committed)
+reference/
+
+# data and model artifacts
+data/
+models/
+*.joblib
+*.pkl
+
+# secrets
+.env
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# misc
+*.log
+.DS_Store
